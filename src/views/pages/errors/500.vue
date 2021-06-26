@@ -6,7 +6,7 @@
         <h3>Ошибка сервера!</h3>
         <p>Ошибка критического уровня, обратитесь к администратору сервиса</p>
         <p v-if="message && message.length">Описание: <code>{{ message }}</code></p>
-        <d-button pill @click="push">&larr; {{ nameRedirect }}</d-button>
+        <button pill @click="push">&larr; {{ nameRedirect }}</button>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@
         <h2>403</h2>
         <h3>Доступ запрещен!</h3>
         <p>Похоже что у вас недостаточно прав доступа!<br></p>
-        <d-button pill @click="push">&larr; {{ nameRedirect }}</d-button>
+        <button pill @click="push">&larr; {{ nameRedirect }}</button>
       </div>
     </div>
   </div>

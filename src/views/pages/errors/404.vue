@@ -6,7 +6,7 @@
         <h3>Страница не найдена!</h3>
         <p>Страница, на которую Вы хотели перейти, не найдена.<br>
           Возможно, введён не корректный адрес или страница была удалена.</p>
-        <d-button pill @click="push">&larr; {{ nameRedirect }}</d-button>
+        <button pill @click="push">&larr; {{ nameRedirect }}</button>
       </div>
     </div>
   </div>
