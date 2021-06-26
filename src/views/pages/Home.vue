@@ -4,12 +4,14 @@
     <div class="crypto-home__content">
 
       <!-- Отображение карточек криптовалют -->
-      <div v-for="(card, idx) in crypto" :key="idx" class="card">
+      <div v-for="card in crypto" :key="card.id" class="card">
         <div class="info">
           <div class="name">
             <span>{{ card.name }}</span> <span>/ USDT</span>
           </div>
-          <span v-if="card.data.length" class="price">{{ card.data[0][30].open }}</span>
+          <transition name="fade">
+            <span v-if="card.data.length" class="price">{{ card.data[0][30].open }}</span>
+          </transition>
         </div>
         <div  class="link" @click="selectCard = card">Смотреть график</div>
       </div>
@@ -36,6 +38,7 @@ export default {
       initialized   : false
     }
   },
+
   created() {
     // Событие закрытия графика
     this.$bus.$on('graph:close', () => { this.selectCard = null })
@@ -46,18 +49,27 @@ export default {
     // Запуск интервала на перезатягивание данных валют(15сек)
     this.intervalCrypto = setInterval(this.updateCrypto, 15000);
   },
+
   computed: {
     crypto() {
       return this.$store.state.cryptocurrency.data
     }
   },
-  methods: {
 
+  methods: {
     // Перезатягивание данных
+    // Обновление графика
     updateCrypto() {
       this.$store.dispatch('cryptocurrency/index')
+        .then(() => {
+          if(this.selectCard) {
+            for (let i in this.$store.state.cryptocurrency.data) {
+              let card = this.$store.state.cryptocurrency.data[i]
+              if(card.id === this.selectCard.id) this.selectCard = card
+            }
+          }
+        })
     }
-
   },
 
   beforeDestroy() {

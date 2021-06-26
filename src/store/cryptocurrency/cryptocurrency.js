@@ -5,34 +5,42 @@ export default {
   state: {
     data: {
       BTS: {
+        id    : 1,
         name  : 'BTS',
         data  : null,
       },
       ETH: {
+        id    : 2,
         name  : 'ETH',
         data  : null,
       },
       XRP: {
+        id    : 3,
         name  : 'XRP',
         data  : null,
       },
       ADA: {
+        id    : 4,
         name  : 'ADA',
         data  : null,
       },
       BNB: {
+        id    : 5,
         name  : 'BNB',
         data  : null,
       },
       LTC: {
+        id    : 6,
         name  : 'LTC',
         data  : null,
       },
       TRX: {
+        id    : 7,
         name  : 'TRX',
         data  : null,
       },
       BCH: {
+        id    : 8,
         name  : 'BCH',
         data  : null,
       }

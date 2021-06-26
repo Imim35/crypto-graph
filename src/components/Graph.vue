@@ -49,5 +49,4 @@ export default {
     top: 0;
   }
 }
-
 </style>
