@@ -9,7 +9,7 @@
           <div class="name">
             <span>{{ card.name }}</span> <span>/ USDT</span>
           </div>
-          <span v-if="card.data.length" class="price">{{ card.data[0][0].open }}</span>
+          <span v-if="card.data.length" class="price">{{ card.data[0][30].open }}</span>
         </div>
         <div  class="link" @click="selectCard = card">Смотреть график</div>
       </div>
