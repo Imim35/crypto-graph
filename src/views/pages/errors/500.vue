@@ -1,5 +1,5 @@
 <template>
-  <d-container fluid class="main-content-container px-4 pb-4" id="error500">
+  <div fluid class="main-content-container px-4 pb-4" id="error500">
     <div class="error">
       <div class="error__content">
         <h2>500</h2>
@@ -9,7 +9,7 @@
         <d-button pill @click="push">&larr; {{ nameRedirect }}</d-button>
       </div>
     </div>
-  </d-container>
+  </div>
 </template>
 
 <script>

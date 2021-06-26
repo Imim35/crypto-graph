@@ -54,7 +54,7 @@ export default {
   methods: {
 
     // Перезатягивание данных
-    updateCrypto(){
+    updateCrypto() {
       this.$store.dispatch('cryptocurrency/index')
     }
 
