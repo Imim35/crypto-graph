@@ -29,7 +29,7 @@ export default {
       if(this.chartOptions.series[0].data.length) {
         this.chartOptions.series[0].data = []
         Object.values(value.data[0]).forEach(e => this.chartOptions.series[0].data.push(e.high) )
-      }else {
+      } else {
         Object.values(value.data[0]).forEach(e => this.chartOptions.series[0].data.push(e.high) )
        }
       }

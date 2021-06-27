@@ -50,14 +50,14 @@ export default {
   actions: {
     // Получение данных 8 криптовалют
     index({ commit }) {
-      const BTS = []
-      const ETH = []
-      const XRP = []
-      const ADA = []
-      const BNB = []
-      const LTC = []
-      const TRX = []
-      const BCH = []
+      let BTS = []
+      let ETH = []
+      let XRP = []
+      let ADA = []
+      let BNB = []
+      let LTC = []
+      let TRX = []
+      let BCH = []
 
       axios.get('https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=30')
         .then(res => BTS.push(res.data.Data.Data))
