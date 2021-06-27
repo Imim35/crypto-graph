@@ -87,7 +87,7 @@ export default {
         .then(res => TRX.push(res.data.Data.Data))
         .catch(() => Vue.prototype.$notification.show('error', 'В данный момент не удалось получить данные TRX, попробуйте позже'))
 
-      axios.get('https://min-api.cryptocompare.com/data/v2/histoday?fsym=TRX&tsym=BCH&limit=30')
+      axios.get('https://min-api.cryptocompare.com/data/v2/histoday?fsym=BCH&tsym=BCH&limit=30')
         .then(res => BCH.push(res.data.Data.Data))
         .catch(() => Vue.prototype.$notification.show('error', 'В данный момент не удалось получить данные BCH, попробуйте позже'))
 
