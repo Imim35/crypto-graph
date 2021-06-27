@@ -53,9 +53,7 @@ export default {
     top: 0;
     transition: 0.3s ease;
     &:hover {
-      height: 12.25px;
-      width: 12.25px;
-      background-image: url("../assets/close.png");
+      background-image: url("../assets/VectorBlue.svg");
     }
   }
 }
