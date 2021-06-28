@@ -21,16 +21,18 @@ export default {
       }
     };
   },
+
    created() {
-    Object.values(this.card.data[0]).forEach(e => this.chartOptions.series[0].data.push(e.high) )
-  },
+    Object.values(this.card.data).forEach(e => this.chartOptions.series[0].data.push(e.high) )
+   },
+
   watch: {
     card(value) {
       if(this.chartOptions.series[0].data.length) {
         this.chartOptions.series[0].data = []
-        Object.values(value.data[0]).forEach(e => this.chartOptions.series[0].data.push(e.high) )
+        Object.values(value.data).forEach(e => this.chartOptions.series[0].data.push(e.high) )
       } else {
-        Object.values(value.data[0]).forEach(e => this.chartOptions.series[0].data.push(e.high) )
+        Object.values(value.data).forEach(e => this.chartOptions.series[0].data.push(e.high) )
        }
       }
     }

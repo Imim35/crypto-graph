@@ -10,10 +10,10 @@
             <span>{{ card.name }}</span> <span>/ USDT</span>
           </div>
           <transition name="fade">
-            <span v-if="card.data.length" class="price">{{ card.data[0][30].open }}</span>
+            <span  class="price">{{ card.price }}</span>
           </transition>
         </div>
-        <div  class="link" @click="selectCard = card">Смотреть график</div>
+        <div class="link" @click="selectCard = card">Смотреть график</div>
       </div>
 
       <!-- Отображение компонента с передаваемыми данные по каждой карточке -->
@@ -26,7 +26,6 @@
 </template>
 
 <script>
-
 import Graph from "@/components/Graph"
 export default {
   name: "Home",
@@ -43,8 +42,11 @@ export default {
     // Событие закрытия графика
     this.$bus.$on('graph:close', () => { this.selectCard = null })
 
-    // Получение криптовалют
-    this.$store.dispatch('cryptocurrency/index').then( () => this.initialized = true)
+    // Получение стоимости криптовалют
+    this.$store.dispatch('cryptocurrency/getPrice').then( () => this.initialized = true)
+
+    // Получение стоимости криптовалют за 30 дней
+    this.$store.dispatch('cryptocurrency/index').then(res => { this.selectCard = res })
 
     // Запуск интервала на перезатягивание данных валют(15сек)
     this.intervalCrypto = setInterval(this.updateCrypto, 15000);
@@ -57,18 +59,9 @@ export default {
   },
 
   methods: {
-    // Перезатягивание данных
-    // Обновление графика
+    // Перезатягивание данных стоимости валют
     updateCrypto() {
-      this.$store.dispatch('cryptocurrency/index')
-        .then(() => {
-          if(this.selectCard) {
-            for (let i in this.$store.state.cryptocurrency.data) {
-              let card = this.$store.state.cryptocurrency.data[i]
-              if(card.id === this.selectCard.id) this.selectCard = card
-            }
-          }
-        })
+      this.$store.dispatch('cryptocurrency/getPrice')
     }
   },
 

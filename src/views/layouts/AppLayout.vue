@@ -9,11 +9,6 @@
 
 <script>
 export default {
-  name: "AppLayout",
-  data() {
-    return {
-      navigationBarShow: false
-    }
-  }
+  name: "AppLayout"
 }
 </script>
