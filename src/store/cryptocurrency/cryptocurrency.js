@@ -55,9 +55,7 @@ export default {
     },
     fetched_at: null
   },
-  getters: {
-
-  },
+  getters: {},
   actions: {
 
     // Получение данных 8 криптовалют за 30 дней
@@ -100,9 +98,9 @@ export default {
 
     // Добавление данных по каждой валюте в поле price
     GET_PRICE(state, { value }) {
-      Object.values(state.data).forEach(cript => {
+      Object.values(state.data).forEach(crypt => {
         Object.keys(value).forEach(el => {
-          if(cript.name === el) cript.price = value[el].USD
+          if(crypt.name === el) crypt.price = value[el].USD
         })
       })
     }
